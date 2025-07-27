@@ -83,7 +83,7 @@ def count_words_from_dataframe(
     return get_token_frequencies(docs, min_freq=min_freq)
 
 
-def summarize_token_frequencies(freq_df: pd.DataFrame, top_n: int = 10) -> dict:
+def summarize_token_frequencies(freq_df: pd.DataFrame) -> dict:
     """
     Summarize a frequency DataFrame returned by get_token_frequencies or count_words_from_dataframe.
 
@@ -112,7 +112,6 @@ def summarize_token_frequencies(freq_df: pd.DataFrame, top_n: int = 10) -> dict:
     median_freq = round(freq_df['freq'].median(), 6)
     top_percentile_90 = round(freq_df['freq'].quantile(0.90), 6)
     top_percentile_99 = round(freq_df['freq'].quantile(0.99), 6)
-    
 
     return {
         "total_tokens": total_tokens,
